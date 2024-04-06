@@ -16,7 +16,7 @@ import {
 // TS - type the body?
 export const postCardsHandler = async (ctx: Context) => {
   const payload = JSON.parse(ctx.body as unknown as string) as ReqBody;
-  const userId = ctx.query.userId;
+    const userId = ctx.query.userId;
   if (!userId) {
     // This should be added to a middleware validator!!!
     ctx.set.status = 400;

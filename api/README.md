@@ -1,5 +1,10 @@
 # Elysia with Bun runtime
 
+## Install Bun
+```bash
+brew install oven-sh/bun/bun
+```
+
 ## Getting Started
 To get started with this template, simply paste this command into your terminal:
 ```bash

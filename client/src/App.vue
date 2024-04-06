@@ -27,10 +27,25 @@ const crawlProgress = ref<{ [key in Site]: { total: number; current: number } } 
 
 const stringToArr = (string: string) => string.split('\n').filter(Boolean);
 
+const transformUrls = (arr: string[]) => {
+  return arr.map(e => prettyString(e));
+}
+
+function prettyString(str: string) {
+  str = replaceAll(str, '\"', '');
+  str = replaceAll(str, ',', '');
+  str = replaceAll(str, '\'', '');
+  return str.trim();
+}
+
+function replaceAll(str: string, find: string, replace: string) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
 async function onSubmit() {
   isLoading.value = true;
   const body: ReqBody = {
-    sources: stringToArr(form.sources),
+    sources: stringToArr(form.sources).map(e => prettyString(e)),
     cards: stringToArr(form.cards),
   };
 

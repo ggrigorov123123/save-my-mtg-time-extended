@@ -1,10 +1,10 @@
 import app from "./app";
-
+import logging from "./utils/logger";
 
 const PORT = 8888;
 
 app.listen(PORT, () => {
-  console.info(`
+  logging.info(`
 
   -----------------------------------------------------------
 
